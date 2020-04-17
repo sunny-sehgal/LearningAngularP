@@ -1,0 +1,75 @@
+<p>home works!</p>
+<div class="row">
+    <div class="col-6">
+        <google-chart #chart
+            [title]="title"
+            [type]="type"
+            [data]="data"
+            [columnNames]="columnNames"
+            [options]="options"
+            [width]="width"
+            [height]="height">
+        </google-chart>
+    </div>
+    <div class="col-6">
+        <google-chart #chart1
+            [title]="title1"
+            [type]="type1"
+            [data]="data1"
+            [columnNames]="columnNames1"
+            [options]="options1"
+            [width]="width1"
+            [height]="height1">
+        </google-chart>
+    </div>
+</div>
+<hr>
+<!-- Show ALL Graphs Together -->
+<!-- {{charts | json}} -->
+<div class="row">
+    <div class="col-4" *ngFor="let reslt of charts">
+        <google-chart
+            width="600"
+            [title]="reslt.title"
+            [type]="reslt.type"
+            [data]="reslt.data"
+            [columnNames]="reslt.columnNames"
+            [roles]="reslt.roles"
+            [options]="reslt.options"
+        >
+        </google-chart>
+    </div>
+</div>
+<hr>
+  <!-- Selected Chart Show -->
+<form>
+    <label>Select Chart: </label>
+  
+    <select [(ngModel)]="chartType" (ngModelChange)="changeChart()" name="googleChart">
+      <option *ngFor="let chart of chartsTypes" [ngValue]="chart">{{chart}}</option>
+    </select>
+    <!-- <select (change)="chnageChart($event.target.value)">
+      <option value="0">--All--</option>
+      <option *ngFor="let chart of chartsTypes" value={{chart}}>
+        {{chart}}
+      </option>
+    </select> -->
+</form>
+
+  <div>
+    <google-chart
+      width="800"
+      [title]="resultChart.title"
+      [type]="resultChart.type"
+      [data]="resultChart.data"
+      [columnNames]="resultChart.columnNames"
+      [roles]="resultChart.roles"
+      [options]="resultChart.options"
+      (ready)="onReady()"
+      (select)="onSelect($event)"
+      (error)="onError($event)"
+      (mouseenter)="onMouseEnter($event)"
+      (mouseleave)="onMouseLeave($event)"
+    >
+    </google-chart>
+  </div>
