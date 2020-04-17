@@ -10,6 +10,7 @@ import { UserService } from './user.service';
 import { HomeComponent } from './home/home.component';
 import { Approutes } from './Routing'
 import { RouterModule } from '@angular/router';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    GoogleChartsModule,
     RouterModule.forRoot( Approutes )
   ],
   providers: [ActivateGuard, UserService],
