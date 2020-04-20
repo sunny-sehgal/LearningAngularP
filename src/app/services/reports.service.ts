@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   })
 
 export class reportsService{
-    chartsData = 'assets/charts.json';
+    chartsData = 'assets/data/charts.json';
 
     constructor(private http: HttpClient) { }
 
